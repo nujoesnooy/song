@@ -27,8 +27,10 @@ function playChord(freqs){
 const G  = [196.00,246.94,293.66];
 const D  = [146.83,220.00,293.66];
 const Em = [164.81,196.00,246.94];
+const C = [261.63,329.63,392.00];
 
-const progression = [G,D,Em,G];
+
+const progression = [G,D,Em,C];
 
 async function startLoop(){
 
