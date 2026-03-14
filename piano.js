@@ -23,7 +23,6 @@ pianoDiv.appendChild(key)
 document.addEventListener("keydown",e=>{
 
 const map={
-
 a:"C",
 s:"D",
 d:"E",
@@ -31,7 +30,6 @@ f:"F",
 g:"G",
 h:"A",
 j:"B"
-
 }
 
 if(map[e.key]){

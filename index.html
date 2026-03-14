@@ -4,7 +4,7 @@
 
 <head>
 <meta charset="UTF-8">
-<title>Web Chord Synth</title>
+<title>Web Synth</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -14,8 +14,12 @@
 
 <!-- 왼쪽 코드 영역 -->
 
-<div class="leftPanel" id="chordPanel">
+<div class="leftPanel">
+
 <h3>Chords</h3>
+
+<div id="chordPanel"></div>
+
 </div>
 
 <!-- 중앙 -->
@@ -53,9 +57,11 @@
 
 </div>
 
-<div class="effectsArea" id="effectsPanel">
+<div class="effectsArea">
 
 <h3>Effects</h3>
+
+<div id="effectsPanel"></div>
 
 </div>
 
@@ -69,9 +75,9 @@ Made by nujoesnooy | Version 0.01
 
 <script src="audio.js"></script>
 
-<script src="effects.js"></script>
-
 <script src="sequencer.js"></script>
+
+<script src="effects.js"></script>
 
 <script src="piano.js"></script>
 

@@ -13,7 +13,7 @@ renderSequence()
 
 function renderSequence(){
 
-sequenceDiv.innerText="Sequence : "+sequence.length+" chords"
+sequenceDiv.innerText="Sequence length : "+sequence.length
 
 }
 
@@ -47,14 +47,11 @@ i++
 if(i>=sequence.length){
 
 if(loop){
-
 i=0
 setTimeout(next,1500)
-
 }
 
 return
-
 }
 
 setTimeout(next,1500)

@@ -1,7 +1,6 @@
 const effectsPanel=document.getElementById("effectsPanel")
 
 const effects=[
-
 "Filter",
 "Resonance",
 "Reverb",
@@ -10,7 +9,6 @@ const effects=[
 "Release",
 "EQ Low",
 "EQ High"
-
 ]
 
 effects.forEach(name=>{

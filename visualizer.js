@@ -28,15 +28,8 @@ for(let i=0;i<data.length;i++){
 let v=data[i]/128
 let y=v*canvas.height/2
 
-if(i===0){
-
-ctx.moveTo(x,y)
-
-}else{
-
-ctx.lineTo(x,y)
-
-}
+if(i===0) ctx.moveTo(x,y)
+else ctx.lineTo(x,y)
 
 x+=slice
 
