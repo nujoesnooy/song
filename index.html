@@ -9,9 +9,12 @@
 
 <body>
 
-<div id="left"></div>
+<div id="left"></div> <!-- 좌측 코드 영역 -->
 
 <div id="center">
+  <canvas id="wave"></canvas> <!-- 중앙 위: 음파 시각화 -->
+  <div id="piano"></div>      <!-- 중앙 아래: 피아노 -->
+</div>
 
 <canvas id="wave"></canvas>
 
@@ -20,6 +23,13 @@
 </div>
 
 <div id="right">
+  <div id="controls">
+    <button id="playBtn">Play</button>
+    <button id="loopBtn">Loop</button>
+    <button id="clearBtn">Clear</button>
+  </div>
+  <div id="effects"></div> <!-- 8개 이펙트 슬라이더 -->
+</div>
 
 <div id="controls">
 
