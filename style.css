@@ -7,7 +7,7 @@ body{
 
 .container{
     display:grid;
-    grid-template-columns:280px 1fr 280px;
+    grid-template-columns:350px 1fr 280px; /* 왼쪽 350px, 중앙 1fr, 오른쪽 280px */
     grid-template-rows:auto 250px 1fr;
     height:calc(100vh - 30px);
     gap:10px;
@@ -20,6 +20,7 @@ body{
     padding:15px;
     overflow-y:auto;
     border-radius:12px;
+    min-width:350px; /* 최소 너비 확보 */
 }
 
 .sidebar-left h3{
@@ -29,8 +30,8 @@ body{
 }
 
 .sidebar-left button{
-    width:100%;
-    margin:4px 0;
+    width:95%; /* 버튼 조금 작게 해서 공간 활용 */
+    margin:4px auto; /* 좌우 중앙 정렬 */
     padding:8px;
     border:none;
     border-radius:6px;
