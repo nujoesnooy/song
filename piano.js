@@ -15,7 +15,6 @@ delayNode.connect(feedbackGain);
 feedbackGain.connect(delayNode);
 delayNode.connect(masterGain);
 
-// Reverb & Chorus (간단한 Gain 기반)
 const reverbGain = audioCtx.createGain();
 reverbGain.gain.value = 0.3;
 reverbGain.connect(masterGain);
@@ -30,7 +29,7 @@ analyser.fftSize = 2048;
 masterGain.connect(analyser);
 
 // --------------------
-// 코드 정의 (C~B 그룹 정리)
+// 코드 정의 (C~B 그룹 정리, C 포함)
 // --------------------
 const chordGroups = {
   C:["CM","Cm","C7","CM7","Cm7","Csus4"],
@@ -60,7 +59,7 @@ const chordFrequencies = {
 };
 
 // --------------------
-// 단일 음 재생 함수
+// 단일 음 재생
 // --------------------
 function playFreq(freq,duration=1){
     const osc = audioCtx.createOscillator();
@@ -68,7 +67,6 @@ function playFreq(freq,duration=1){
     osc.frequency.value = freq;
     osc.type = "sine";
 
-    // 이펙트 연결
     osc.connect(gain);
     gain.connect(delayNode);
     gain.connect(reverbGain);
@@ -89,11 +87,11 @@ function playChord(freqs){
 }
 
 // --------------------
-// 코드 UI 생성
+// 코드 UI
 // --------------------
 const chordContainer = document.querySelector(".chords");
 const sequenceDiv = document.getElementById("sequence");
-let sequence = [];
+let sequence=[];
 
 for(let group in chordGroups){
     const header = document.createElement("h4");
@@ -112,18 +110,18 @@ for(let group in chordGroups){
 }
 
 function renderSequence(){
-    sequenceDiv.textContent = sequence.join(" → ");
+    sequenceDiv.textContent=sequence.join(" → ");
 }
 
 // --------------------
 // 시퀀스 재생 / 초기화
 // --------------------
-document.getElementById("playSeq").onclick = ()=>{
+document.getElementById("playSeq").onclick=()=>{
     sequence.forEach((chord,i)=>{
         setTimeout(()=>playChord(chordFrequencies[chord]), i*1800);
     });
 };
-document.getElementById("clearSeq").onclick = ()=>{
+document.getElementById("clearSeq").onclick=()=>{
     sequence=[];
     renderSequence();
 };
