@@ -1,3 +1,6 @@
+/* --------------------------
+   기본 페이지 설정
+--------------------------- */
 body{
     margin:0;
     font-family:'Segoe UI',sans-serif;
@@ -5,52 +8,68 @@ body{
     color:white;
 }
 
+/* --------------------------
+   전체 컨테이너: 3열 그리드
+--------------------------- */
 .container{
     display:grid;
-    grid-template-columns:350px 1fr 280px; /* 왼쪽 350px, 중앙 1fr, 오른쪽 280px */
-    grid-template-rows:auto 250px 1fr;
-    height:calc(100vh - 30px);
-    gap:10px;
-    padding:10px;
+    grid-template-columns:350px 1fr 280px; /* 왼쪽 넓게 */
+    grid-template-rows:auto 1fr;           /* 중앙 파형 포함 */
+    height:calc(100vh - 40px);
+    gap:15px;
+    padding:15px;
 }
 
+/* --------------------------
+   왼쪽 코드 버튼 영역
+--------------------------- */
 .sidebar-left{
-    grid-row:1 / span 3;
-    background:#1c1c28;
+    background:#1e1e2a;
     padding:15px;
     overflow-y:auto;
-    border-radius:12px;
-    min-width:350px; /* 최소 너비 확보 */
+    border-radius:15px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.5);
 }
 
 .sidebar-left h3{
     text-align:center;
-    margin-bottom:10px;
-    color:#00ffcc;
+    margin-bottom:15px;
+    color:#00ffd5;
+    letter-spacing:1px;
+    font-size:18px;
 }
 
 .sidebar-left button{
-    width:95%; /* 버튼 조금 작게 해서 공간 활용 */
-    margin:4px auto; /* 좌우 중앙 정렬 */
-    padding:8px;
+    width:95%;
+    margin:6px auto;
+    padding:10px;
     border:none;
-    border-radius:6px;
-    background:#2d2d3c;
+    border-radius:10px;
+    background:#2a2a3a;
     color:#fff;
     cursor:pointer;
-    transition:.2s;
+    font-weight:600;
+    font-size:14px;
+    transition:.25s all;
+    box-shadow:0 2px 6px rgba(0,0,0,0.5);
 }
 .sidebar-left button:hover{
-    background:#00ffcc;
-    color:#000;
+    background:#00ffd5;
+    color:#0f111a;
+    transform:scale(1.05);
 }
 
+/* --------------------------
+   중앙 파형 영역
+--------------------------- */
 .center{
-    grid-column:2 / 3;
-    grid-row:1 / 2;
     display:flex;
     justify-content:center;
     align-items:center;
+    background:linear-gradient(145deg,#14141f,#1a1a27);
+    border-radius:15px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.5);
+    padding:10px;
 }
 
 canvas{
@@ -58,37 +77,61 @@ canvas{
     background:#14141f;
 }
 
+/* --------------------------
+   오른쪽 시퀀스/이펙터 영역
+--------------------------- */
 .sidebar-right-top, .sidebar-right-bottom{
-    background:#1c1c28;
+    background:#1e1e2a;
     padding:15px;
-    border-radius:12px;
+    border-radius:15px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.5);
+    margin-bottom:15px;
 }
 
+.sidebar-right-top h3, .sidebar-right-bottom h3{
+    text-align:center;
+    margin-bottom:10px;
+    color:#00ffd5;
+    letter-spacing:1px;
+}
+
+/* --------------------------
+   오른쪽 버튼 스타일 통일
+--------------------------- */
 button{
-    margin:5px 3px;
-    padding:6px 12px;
+    margin:5px 4px;
+    padding:8px 14px;
     border:none;
-    border-radius:6px;
+    border-radius:10px;
     cursor:pointer;
-    background:#00ffcc;
-    color:#000;
+    background:#00ffd5;
+    color:#0f111a;
     font-weight:bold;
-    transition:.2s;
+    transition:.25s all;
 }
 button:hover{
-    background:#4cffea;
+    background:#33fff0;
+    transform:scale(1.05);
 }
 
+/* --------------------------
+   슬라이더 (이펙터) 디자인
+--------------------------- */
 input[type=range]{
     width:100%;
-    margin:4px 0 12px;
+    margin:6px 0 12px;
+    accent-color:#00ffd5; /* Chrome, Edge용 컬러 */
 }
 
+/* --------------------------
+   하단 footer
+--------------------------- */
 footer{
     height:30px;
     text-align:center;
     line-height:30px;
     font-size:14px;
     color:#888;
-    background:#0f111a;
+    background:rgba(15,17,26,0.9);
+    letter-spacing:1px;
 }
