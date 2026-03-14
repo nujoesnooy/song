@@ -1,128 +1,128 @@
-/* 전체 레이아웃 */
 body{
-margin:0;
-height:100vh;
-display:grid;
-grid-template-columns:3fr 5fr 2fr; /* 좌중우 3:5:2 */
-font-family:sans-serif;
+  margin:0;
+  height:100vh;
+  display:grid;
+  grid-template-columns:3fr 5fr 2fr;
+  font-family:sans-serif;
 }
 
-/* LEFT 영역 */
+/* LEFT */
 #left{
-display:grid;
-grid-template-rows:repeat(7,1fr); /* 7개 코드 루트 */
-background:#111;
-color:white;
-padding:2px;
+  display:grid;
+  grid-template-rows:repeat(7,1fr);
+  background:#111;
+  color:white;
+  padding:5px;
 }
 
 .chordRow{
-display:flex;
-flex-direction:column;
-border-bottom:1px solid #333;
+  display:flex;
+  flex-direction:column;
+  border-bottom:1px solid #333;
 }
 
 .chordTitle{
-text-align:center;
-padding:4px;
-font-weight:bold;
+  text-align:center;
+  font-weight:bold;
+  margin-bottom:2px;
 }
 
 .chordButtons{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
 }
 
 .chordButtons button{
-margin:2px;
-flex:1 1 30%; /* 버튼 너비 균일 */
-height:28px;
+  margin:2px;
+  flex:1 1 30%;
+  height:30px;
+  background:#222;
+  color:white;
+  border:none;
+  border-radius:4px;
+  cursor:pointer;
+  transition:0.2s;
 }
 
-/* CENTER 영역 */
+.chordButtons button:hover{
+  background:#444;
+}
+
+/* CENTER */
 #center{
-display:grid;
-grid-template-rows:7fr 3fr; /* 위 : 아래 7:3 */
-border-left:2px solid #333;
-border-right:2px solid #333;
+  display:grid;
+  grid-template-rows:7fr 3fr;
+  border-left:2px solid #333;
+  border-right:2px solid #333;
 }
 
 #wave{
-background:black;
-width:100%;
-height:100%;
+  background:black;
+  width:100%;
+  height:100%;
 }
 
 #piano{
-display:flex;
-position:relative;
-height:100%;
-border-top:2px solid #333;
+  display:flex;
+  height:100%;
+  border-top:2px solid #333;
 }
 
-/* 피아노 건반 */
 .key{
-border:1px solid black;
-background:white;
-flex:1;
-position:relative;
-cursor:pointer;
-user-select:none;
-transition:0.1s;
+  flex:1;
+  border:1px solid black;
+  background:white;
+  position:relative;
+  cursor:pointer;
+  user-select:none;
+  transition:0.1s;
 }
 
 .key.active{
-background:orange;
+  background:orange;
 }
 
-/* 오른쪽 영역 */
+/* RIGHT */
 #right{
-display:grid;
-grid-template-rows:1fr 1fr; /* 위 : 아래 5:5 비율 적용 */
-background:#eee;
-padding:5px;
+  display:grid;
+  grid-template-rows:1fr 1fr;
+  background:#eee;
+  padding:5px;
 }
 
-/* 오른쪽 위: 컨트롤 버튼 */
+/* Controls */
 #controls{
-display:flex;
-gap:5px;
-justify-content:center;
-align-items:center;
-padding:10px;
-border-bottom:2px solid #ccc;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:5px;
+  padding:10px;
 }
 
 #controls button{
-flex:1;
-padding:8px;
-font-weight:bold;
-cursor:pointer;
+  flex:1;
+  padding:8px;
+  font-weight:bold;
+  cursor:pointer;
 }
 
-/* 오른쪽 아래: 이펙트 슬라이더 */
+/* Effects */
 #effects{
-display:grid;
-grid-template-columns:repeat(8,1fr); /* 8개 이펙트 */
-gap:5px;
-align-items:center;
-justify-items:center;
-padding-top:10px;
+  display:grid;
+  grid-template-columns:repeat(8,1fr);
+  gap:5px;
+  align-items:center;
+  justify-items:center;
 }
 
 .effect{
-display:flex;
-flex-direction:column;
-align-items:center;
-}
-
-.effect label{
-margin-bottom:5px;
-font-size:12px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
 }
 
 .effect input{
-transform:rotate(-90deg);
-width:80px;
+  transform:rotate(-90deg);
+  width:80px;
 }
