@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Interactive Web Synth + Chords + Effects</title>
+<title>Web Chord Player with Effects</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -17,7 +17,7 @@
 
   <!-- 중앙 파형 -->
   <div class="center">
-    <canvas id="waveform" width="800" height="300"></canvas>
+    <canvas id="waveform" width="800" height="200"></canvas>
   </div>
 
   <!-- 오른쪽 상단 시퀀스 -->
@@ -25,6 +25,7 @@
     <h3>Sequence</h3>
     <div id="sequence"></div>
     <button id="playSeq">Play Sequence</button>
+    <button id="loopSeq">Loop Sequence</button>
     <button id="clearSeq">Clear</button>
   </div>
 
@@ -46,6 +47,10 @@
   </div>
 
 </div>
+
+<footer>
+  Made by nujoesnooy | Version 0.01
+</footer>
 
 <script src="piano.js"></script>
 </body>
