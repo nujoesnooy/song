@@ -4,24 +4,51 @@ const masterGain = audioCtx.createGain();
 masterGain.gain.value = 0.5;
 masterGain.connect(audioCtx.destination);
 
+// 이펙터 노드
+const delayNode = audioCtx.createDelay();
+delayNode.delayTime.value = 0.25;
+
+const feedbackGain = audioCtx.createGain();
+feedbackGain.gain.value = 0.4;
+
+delayNode.connect(feedbackGain);
+feedbackGain.connect(delayNode);
+delayNode.connect(masterGain);
+
+// Reverb & Chorus (간단한 Gain 기반)
+const reverbGain = audioCtx.createGain();
+reverbGain.gain.value = 0.3;
+reverbGain.connect(masterGain);
+
+const chorusGain = audioCtx.createGain();
+chorusGain.gain.value = 0.3;
+chorusGain.connect(masterGain);
+
 // AnalyserNode (파형)
 const analyser = audioCtx.createAnalyser();
 analyser.fftSize = 2048;
 masterGain.connect(analyser);
 
 // --------------------
-// 코드 정의 (C~B까지 주요 코드)
+// 코드 정의 (C~B 그룹 정리)
 // --------------------
-const chords = {
-  "CM":[261.63,329.63,392.00], "Cm":[261.63,311.13,392.00],
-  "C7":[261.63,329.63,392.00,466.16], "CM7":[261.63,329.63,392.00,493.88],
-  "Cm7":[261.63,311.13,392.00,466.16], "Csus4":[261.63,349.23,392.00],
-  "D":[293.66,369.99,440.00], "Dm":[293.66,349.23,440.00],
-  "D7":[293.66,369.99,440.00,523.25], "DM7":[293.66,369.99,440.00,554.37],
-  "Dm7":[293.66,349.23,440.00,523.25], "Dsus4":[293.66,440.00,369.99],
-  "E":[329.63,415.30,493.88], "Em":[329.63,392.00,493.88],
-  "E7":[329.63,415.30,493.88,587.33], "EM7":[329.63,415.30,493.88,659.26],
-  "Em7":[329.63,392.00,493.88,587.33], "Esus4":[329.63,493.88,415.30],
+const chordGroups = {
+  C:["CM","Cm","C7","CM7","Cm7","Csus4"],
+  D:["D","Dm","D7","DM7","Dm7","Dsus4"],
+  E:["E","Em","E7","EM7","Em7","Esus4"],
+  F:["F","Fm","F7","FM7","Fm7","Fsus4"],
+  G:["G","Gm","G7","GM7","Gm7","Gsus4"],
+  A:["A","Am","A7","AM7","Am7","Asus4"],
+  B:["B","Bm","B7","BM7","Bm7","Bsus4"]
+};
+
+const chordFrequencies = {
+  "CM":[261.63,329.63,392.00], "Cm":[261.63,311.13,392.00], "C7":[261.63,329.63,392.00,466.16],
+  "CM7":[261.63,329.63,392.00,493.88], "Cm7":[261.63,311.13,392.00,466.16], "Csus4":[261.63,349.23,392.00],
+  "D":[293.66,369.99,440.00], "Dm":[293.66,349.23,440.00], "D7":[293.66,369.99,440.00,523.25],
+  "DM7":[293.66,369.99,440.00,554.37], "Dm7":[293.66,349.23,440.00,523.25], "Dsus4":[293.66,440.00,369.99],
+  "E":[329.63,415.30,493.88], "Em":[329.63,392.00,493.88], "E7":[329.63,415.30,493.88,587.33],
+  "EM7":[329.63,415.30,493.88,659.26], "Em7":[329.63,392.00,493.88,587.33], "Esus4":[329.63,493.88,415.30],
   "F":[349.23,440.00,523.25], "Fm":[349.23,415.30,523.25], "F7":[349.23,440.00,523.25,622.25],
   "FM7":[349.23,440.00,523.25,659.26], "Fm7":[349.23,415.30,523.25,622.25], "Fsus4":[349.23,440.00,523.25],
   "G":[392.00,493.88,587.33], "Gm":[392.00,466.16,587.33], "G7":[392.00,493.88,587.33,698.46],
@@ -33,7 +60,7 @@ const chords = {
 };
 
 // --------------------
-// 단일 음 재생 + 에코
+// 단일 음 재생 함수
 // --------------------
 function playFreq(freq,duration=1){
     const osc = audioCtx.createOscillator();
@@ -41,18 +68,12 @@ function playFreq(freq,duration=1){
     osc.frequency.value = freq;
     osc.type = "sine";
 
-    const delay = audioCtx.createDelay();
-    delay.delayTime.value = 0.25;
-    const feedback = audioCtx.createGain();
-    feedback.gain.value = 0.4;
-
+    // 이펙트 연결
     osc.connect(gain);
+    gain.connect(delayNode);
+    gain.connect(reverbGain);
+    gain.connect(chorusGain);
     gain.connect(masterGain);
-
-    gain.connect(delay);
-    delay.connect(feedback);
-    feedback.connect(delay);
-    delay.connect(masterGain);
 
     osc.start();
     gain.gain.setValueAtTime(0.3,audioCtx.currentTime);
@@ -68,22 +89,26 @@ function playChord(freqs){
 }
 
 // --------------------
-// 코드 버튼 UI
+// 코드 UI 생성
 // --------------------
 const chordContainer = document.querySelector(".chords");
 const sequenceDiv = document.getElementById("sequence");
 let sequence = [];
 
-for(let chordName in chords){
-    const btn = document.createElement("button");
-    btn.textContent = chordName;
-    btn.dataset.chord = chordName;
-    btn.onclick = ()=>{
-        playChord(chords[chordName]);
-        sequence.push(chordName);
-        renderSequence();
-    };
-    chordContainer.appendChild(btn);
+for(let group in chordGroups){
+    const header = document.createElement("h4");
+    header.textContent = group;
+    chordContainer.appendChild(header);
+    chordGroups[group].forEach(chord=>{
+        const btn = document.createElement("button");
+        btn.textContent=chord;
+        btn.onclick=()=>{
+            playChord(chordFrequencies[chord]);
+            sequence.push(chord);
+            renderSequence();
+        };
+        chordContainer.appendChild(btn);
+    });
 }
 
 function renderSequence(){
@@ -95,35 +120,21 @@ function renderSequence(){
 // --------------------
 document.getElementById("playSeq").onclick = ()=>{
     sequence.forEach((chord,i)=>{
-        setTimeout(()=>playChord(chords[chord]), i*1800);
+        setTimeout(()=>playChord(chordFrequencies[chord]), i*1800);
     });
 };
-
 document.getElementById("clearSeq").onclick = ()=>{
-    sequence = [];
+    sequence=[];
     renderSequence();
 };
 
 // --------------------
-// 신디사이저 키보드
+// 이펙터 조정
 // --------------------
-const keyboard = document.querySelector(".keyboard");
-const keyMap = {A:261.63,S:293.66,D:329.63,F:349.23,G:392.00,H:440.00,J:493.88,K:523.25,L:587.33,";":659.26};
-for(let key in keyMap){
-    const div = document.createElement("div");
-    div.className="key";
-    div.textContent = key;
-    div.onclick=()=>playFreq(keyMap[key],1);
-    keyboard.appendChild(div);
-}
-
-// --------------------
-// 키보드 입력
-// --------------------
-document.addEventListener("keydown",e=>{
-    let k = e.key.toUpperCase();
-    if(keyMap[k]) playFreq(keyMap[k],1);
-});
+document.getElementById("echoGain").oninput = e=>feedbackGain.gain.value = parseFloat(e.target.value);
+document.getElementById("delayTime").oninput = e=>delayNode.delayTime.value = parseFloat(e.target.value);
+document.getElementById("reverbGain").oninput = e=>reverbGain.gain.value = parseFloat(e.target.value);
+document.getElementById("chorusGain").oninput = e=>chorusGain.gain.value = parseFloat(e.target.value);
 
 // --------------------
 // 파형 시각화
@@ -137,17 +148,17 @@ function drawWaveform(){
     const dataArray = new Uint8Array(bufferLength);
     analyser.getByteTimeDomainData(dataArray);
 
-    ctx.fillStyle="#222";
+    ctx.fillStyle="#1a1a1a";
     ctx.fillRect(0,0,canvas.width,canvas.height);
 
     ctx.lineWidth=2;
-    ctx.strokeStyle="#00ff00";
+    ctx.strokeStyle="#00ffcc";
     ctx.beginPath();
     let sliceWidth = canvas.width / bufferLength;
     let x=0;
     for(let i=0;i<bufferLength;i++){
         const v = dataArray[i]/128.0;
-        const y = v * canvas.height/2;
+        const y = v*canvas.height/2;
         if(i===0) ctx.moveTo(x,y);
         else ctx.lineTo(x,y);
         x+=sliceWidth;
@@ -155,5 +166,4 @@ function drawWaveform(){
     ctx.lineTo(canvas.width,canvas.height/2);
     ctx.stroke();
 }
-
 drawWaveform();

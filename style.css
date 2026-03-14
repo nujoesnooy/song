@@ -1,13 +1,13 @@
 body{
     margin:0;
     font-family:Arial;
-    background:#111;
+    background:#121212;
     color:white;
 }
 
 .container{
     display:grid;
-    grid-template-columns: 200px 1fr 250px;
+    grid-template-columns: 220px 1fr 280px;
     grid-template-rows: auto 300px 1fr;
     height:100vh;
     gap:10px;
@@ -16,28 +16,34 @@ body{
 
 .sidebar-left{
     grid-row:1 / span 3;
-    background:#222;
+    background:#1e1e1e;
     padding:10px;
     overflow-y:auto;
+    border-radius:8px;
 }
 
 .center{
     grid-column:2 / 3;
     grid-row:1 / 2;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
 .sidebar-right-top{
     grid-column:3 / 4;
     grid-row:1 / 2;
-    background:#222;
+    background:#1e1e1e;
     padding:10px;
+    border-radius:8px;
 }
 
 .sidebar-right-bottom{
     grid-column:3 / 4;
     grid-row:2 / 4;
-    background:#222;
+    background:#1e1e1e;
     padding:10px;
+    border-radius:8px;
 }
 
 button{
@@ -52,41 +58,13 @@ button{
 
 canvas{
     border:2px solid #555;
-    background:#222;
+    background:#1a1a1a;
+    border-radius:8px;
 }
 
-.keyboard{
-    display:flex;
-    justify-content:center;
-    margin-top:10px;
+.effect{
+    margin:10px 0;
 }
-
-.key{
-    width:40px;
-    height:150px;
-    border:1px solid black;
-    margin:1px;
-    background:white;
-    display:flex;
-    align-items:flex-end;
-    justify-content:center;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-.key.black{
-    width:30px;
-    height:100px;
-    background:black;
-    color:white;
-    position:relative;
-    margin-left:-15px;
-    margin-right:-15px;
-    z-index:1;
-}
-.key:active{
-    background:#ddd;
-}
-.key.black:active{
-    background:#333;
+input[type=range]{
+    width:100%;
 }
