@@ -1,17 +1,22 @@
-body{margin:0;font-family:'Segoe UI',sans-serif;background:#0f111a;color:white;}
-.container{display:grid;grid-template-columns:3fr 4fr 3fr;height:100vh;gap:10px;padding:10px;}
-.sidebar-left{background:#1e1e2a;padding:10px;border-radius:12px;overflow-y:auto;}
-.center{display:flex;flex-direction:column;gap:5px;}
-.center-top{flex:7;background:#14141f;border-radius:12px;display:flex;justify-content:center;align-items:center;}
-.center-bottom{flex:3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;}
-.sidebar-right{display:flex;flex-direction:column;gap:10px;}
-.right-top{flex:1;background:#1e1e2a;padding:10px;border-radius:12px;}
-.right-bottom{flex:1;background:#1e1e2a;padding:10px;border-radius:12px;}
-button{cursor:pointer;border:none;border-radius:8px;background:#00ffd5;color:#0f111a;padding:6px 10px;transition:.2s;}
-button:hover{background:#33fff0;transform:scale(1.05);}
-canvas{border-radius:10px;background:#14141f;}
-.pianoKey{width:40px;height:120px;border:1px solid #000;background:white;text-align:center;line-height:120px;cursor:pointer;user-select:none;position:relative;}
-.pianoKey.black{width:28px;height:80px;background:black;color:white;z-index:2;margin-left:-14px;margin-right:-14px;}
-.pianoKey.active{background:#00ffd5;color:#0f111a;}
-.oct-controls{margin-top:5px;display:flex;gap:5px;}
-footer{text-align:center;line-height:30px;background:rgba(15,17,26,0.9);}
+body {margin:0; font-family: 'Segoe UI', sans-serif; background:#0f111a; color:white;}
+.container {display:grid; grid-template-columns:3fr 4fr 3fr; height:100vh; gap:10px; padding:10px;}
+.sidebar-left {background:#1e1e2a; padding:10px; border-radius:12px; overflow-y:auto;}
+.sidebar-right {display:flex; flex-direction:column; gap:10px;}
+.right-top, .right-bottom {background:#1e1e2a; padding:10px; border-radius:12px; overflow-y:auto;}
+.center {display:flex; flex-direction:column; gap:5px; background:#14141f; border-radius:12px;}
+.center-top {flex:7; display:flex; justify-content:center; align-items:center;}
+.center-bottom {flex:3; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:5px;}
+button {cursor:pointer; border:none; border-radius:8px; background:#00ffd5; color:#0f111a; padding:6px 10px; transition:.2s; margin:2px;}
+button:hover {background:#33fff0; transform:scale(1.05);}
+.pianoKey {width:40px; height:120px; border:1px solid #000; text-align:center; line-height:120px; cursor:pointer; user-select:none; position:relative; background:white;}
+.pianoKey.black {width:28px; height:80px; background:black; color:white; z-index:2; margin-left:-14px; margin-right:-14px;}
+.pianoKey.active {background:#00ffd5; color:#0f111a;}
+#pianoKeys {display:flex; gap:2px;}
+.oct-controls {margin-top:5px; display:flex; gap:5px;}
+canvas {border-radius:10px; background:#0f111a;}
+footer {text-align:center; line-height:30px; background:rgba(15,17,26,0.9);}
+label {display:flex; flex-direction:column; font-size:12px; margin:5px 0;}
+input[type=range] {width:100%; margin-top:2px;}
+.chord-group {margin-bottom:10px;}
+.group-name {color:#00ffd5; font-weight:bold; margin-bottom:4px;}
+.group-buttons {display:flex; flex-wrap:wrap; gap:4px;}

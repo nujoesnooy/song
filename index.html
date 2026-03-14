@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Advanced Chord Piano</title>
+<title>Chord Piano Player</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -10,10 +10,8 @@
 <div class="container">
 
   <!-- 왼쪽: 코드 패널 -->
-  <div class="sidebar-left">
+  <div class="sidebar-left" id="chordPanel">
     <h3>Chords</h3>
-    <!-- C ~ B 그룹, 버튼은 JS로도 생성 가능 -->
-    <div id="chordButtons"></div>
   </div>
 
   <!-- 중앙: 파형 + 피아노 -->
@@ -30,7 +28,7 @@
     </div>
   </div>
 
-  <!-- 오른쪽: 시퀀스 + 효과 -->
+  <!-- 오른쪽 -->
   <div class="sidebar-right">
     <div class="right-top">
       <h3>Sequence</h3>
@@ -41,7 +39,7 @@
     </div>
     <div class="right-bottom">
       <h3>Effects</h3>
-      <div id="effectSliders"></div>
+      <div id="effects"></div>
     </div>
   </div>
 
@@ -49,7 +47,6 @@
 
 <footer>Made by nujoesnooy | Version 0.01</footer>
 
-<script src="utils.js"></script>
 <script src="audio.js"></script>
 <script src="piano.js"></script>
 </body>
