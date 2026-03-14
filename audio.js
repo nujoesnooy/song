@@ -56,18 +56,79 @@ const chordSuffixes=['','7','m','m7','M7','sus4'];
 const chordPanel=document.getElementById('chordPanel');
 
 chordGroups.forEach(g=>{
-  const div=document.createElement('div'); div.className='chord-group';
-  const groupName=document.createElement('div'); groupName.className='group-name'; groupName.textContent=g;
+
+  const div=document.createElement('div');
+  div.className='chord-group';
+
+  const groupName=document.createElement('div');
+  groupName.className='group-name';
+  groupName.textContent=g;
   div.appendChild(groupName);
-  const btnRow=document.createElement('div'); btnRow.className='group-buttons';
+
+  const btnRow=document.createElement('div');
+  btnRow.className='group-buttons';
+
   chordSuffixes.forEach(s=>{
-    const btn=document.createElement('button'); btn.textContent=g+s;
-    btn.onclick=()=>{playChord(notes[g]); addSequence(g);}
+
+    const btn=document.createElement('button');
+    btn.textContent=g+s;
+
+    btn.onclick=()=>{
+
+      const root=notes[g][0];
+
+      const chord = buildChord(root,s);
+
+      playChord(chord);
+
+      addSequence(g+s);
+    }
+
     btnRow.appendChild(btn);
   });
+
   div.appendChild(btnRow);
   chordPanel.appendChild(div);
+
 });
+
+// 코드 타입별 음 계산
+function buildChord(rootFreq, type){
+
+  const semi = Math.pow(2,1/12); // 반음 계산
+
+  const majorThird = rootFreq * Math.pow(semi,4);
+  const minorThird = rootFreq * Math.pow(semi,3);
+
+  const fifth = rootFreq * Math.pow(semi,7);
+  const minorSeventh = rootFreq * Math.pow(semi,10);
+  const majorSeventh = rootFreq * Math.pow(semi,11);
+  const susFourth = rootFreq * Math.pow(semi,5);
+
+  switch(type){
+
+    case "":
+      return [rootFreq, majorThird, fifth];
+
+    case "m":
+      return [rootFreq, minorThird, fifth];
+
+    case "7":
+      return [rootFreq, majorThird, fifth, minorSeventh];
+
+    case "m7":
+      return [rootFreq, minorThird, fifth, minorSeventh];
+
+    case "M7":
+      return [rootFreq, majorThird, fifth, majorSeventh];
+
+    case "sus4":
+      return [rootFreq, susFourth, fifth];
+
+    default:
+      return [rootFreq, majorThird, fifth];
+  }
+}
 
 // 이펙터 슬라이더
 const effects=['Filter','Resonance','Reverb Amt','Chorus Amt','Attack','Release','EQ Low','EQ High'];
