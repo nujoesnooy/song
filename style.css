@@ -1,22 +1,72 @@
 body{
+    margin:0;
+    font-family:Arial;
     background:#111;
     color:white;
-    text-align:center;
-    font-family:Arial;
 }
 
-.piano{
+.container{
+    display:grid;
+    grid-template-columns: 200px 1fr 250px;
+    grid-template-rows: auto 300px 1fr;
+    height:100vh;
+    gap:10px;
+    padding:10px;
+}
+
+.sidebar-left{
+    grid-row:1 / span 3;
+    background:#222;
+    padding:10px;
+    overflow-y:auto;
+}
+
+.center{
+    grid-column:2 / 3;
+    grid-row:1 / 2;
+}
+
+.sidebar-right-top{
+    grid-column:3 / 4;
+    grid-row:1 / 2;
+    background:#222;
+    padding:10px;
+}
+
+.sidebar-right-bottom{
+    grid-column:3 / 4;
+    grid-row:2 / 4;
+    background:#222;
+    padding:10px;
+}
+
+button{
+    margin:5px;
+    padding:5px 10px;
+    cursor:pointer;
+    border-radius:5px;
+    border:none;
+    background:#4CAF50;
+    color:white;
+}
+
+canvas{
+    border:2px solid #555;
+    background:#222;
+}
+
+.keyboard{
     display:flex;
     justify-content:center;
-    margin-top:50px;
+    margin-top:10px;
 }
 
 .key{
-    width:80px;
-    height:250px;
-    border:2px solid black;
+    width:40px;
+    height:150px;
+    border:1px solid black;
+    margin:1px;
     background:white;
-    margin:2px;
     display:flex;
     align-items:flex-end;
     justify-content:center;
@@ -24,25 +74,19 @@ body{
     cursor:pointer;
 }
 
+.key.black{
+    width:30px;
+    height:100px;
+    background:black;
+    color:white;
+    position:relative;
+    margin-left:-15px;
+    margin-right:-15px;
+    z-index:1;
+}
 .key:active{
     background:#ddd;
 }
-
-button{
-    font-size:20px;
-    padding:10px 20px;
-    margin:15px;
-    cursor:pointer;
-    border-radius:8px;
-    border:none;
-}
-
-#playBtn{
-    background:#4CAF50;
-    color:white;
-}
-
-#stopBtn{
-    background:#f44336;
-    color:white;
+.key.black:active{
+    background:#333;
 }
