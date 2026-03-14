@@ -1,100 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Web Chord Player</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
 <div class="container">
 
   <!-- 왼쪽 코드 영역 -->
   <div class="sidebar-left">
     <h3>Chords</h3>
     <div class="chord-groups">
-      <!-- C 코드 그룹 -->
+      <!-- C~B 그룹 -->
       <div class="chord-group">
         <div class="group-name">C</div>
         <div class="group-buttons">
-          <button>C</button>
-          <button>C7</button>
-          <button>Cm</button>
-          <button>Cm7</button>
-          <button>CM7</button>
-          <button>Csus4</button>
+          <button>C</button><button>C7</button><button>Cm</button><button>Cm7</button><button>CM7</button><button>Csus4</button>
         </div>
       </div>
-
-      <!-- D 코드 그룹 -->
       <div class="chord-group">
         <div class="group-name">D</div>
         <div class="group-buttons">
-          <button>D</button>
-          <button>D7</button>
-          <button>Dm</button>
-          <button>Dm7</button>
-          <button>DM7</button>
-          <button>Dsus4</button>
+          <button>D</button><button>D7</button><button>Dm</button><button>Dm7</button><button>DM7</button><button>Dsus4</button>
         </div>
       </div>
-
-      <!-- E 코드 그룹 -->
       <div class="chord-group">
         <div class="group-name">E</div>
         <div class="group-buttons">
-          <button>E</button>
-          <button>E7</button>
-          <button>Em</button>
-          <button>Em7</button>
-          <button>EM7</button>
-          <button>Esus4</button>
+          <button>E</button><button>E7</button><button>Em</button><button>Em7</button><button>EM7</button><button>Esus4</button>
         </div>
       </div>
-
-      <!-- F 코드 그룹 -->
       <div class="chord-group">
         <div class="group-name">F</div>
         <div class="group-buttons">
-          <button>F</button>
-          <button>F7</button>
-          <button>Fm</button>
-          <button>Fm7</button>
-          <button>FM7</button>
-          <button>Fsus4</button>
+          <button>F</button><button>F7</button><button>Fm</button><button>Fm7</button><button>FM7</button><button>Fsus4</button>
         </div>
       </div>
-
-      <!-- G 코드 그룹 -->
       <div class="chord-group">
         <div class="group-name">G</div>
         <div class="group-buttons">
-          <button>G</button>
-          <button>G7</button>
-          <button>Gm</button>
-          <button>Gm7</button>
-          <button>GM7</button>
-          <button>Gsus4</button>
+          <button>G</button><button>G7</button><button>Gm</button><button>Gm7</button><button>GM7</button><button>Gsus4</button>
         </div>
       </div>
-
-      <!-- A 코드 그룹 -->
       <div class="chord-group">
         <div class="group-name">A</div>
         <div class="group-buttons">
-          <button>A</button>
-          <button>A7</button>
-          <button>Am</button>
-          <button>Am7</button>
-          <button>AM7</button>
-          <button>Asus4</button>
+          <button>A</button><button>A7</button><button>Am</button><button>Am7</button><button>AM7</button><button>Asus4</button>
         </div>
       </div>
-
-      <!-- B 코드 그룹 -->
       <div class="chord-group">
         <div class="group-name">B</div>
         <div class="group-buttons">
-          <button>B</button>
-          <button>B7</button>
-          <button>Bm</button>
-          <button>Bm7</button>
-          <button>BM7</button>
-          <button>Bsus4</button>
+          <button>B</button><button>B7</button><button>Bm</button><button>Bm7</button><button>BM7</button><button>Bsus4</button>
         </div>
       </div>
-
     </div>
   </div>
 
@@ -103,7 +64,7 @@
     <canvas id="waveform" width="800" height="250"></canvas>
   </div>
 
-  <!-- 오른쪽 상단: Sequence 저장 -->
+  <!-- 오른쪽 상단: Sequence -->
   <div class="sidebar-right-top">
     <h3>Sequence</h3>
     <div id="sequence"></div>
@@ -126,3 +87,7 @@
 <footer>
   Made by nujoesnooy | Version 0.01
 </footer>
+
+<script src="piano.js"></script>
+</body>
+</html>

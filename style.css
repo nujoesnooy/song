@@ -1,6 +1,3 @@
-/* --------------------------
-   기본 페이지 설정
---------------------------- */
 body{
     margin:0;
     font-family:'Segoe UI',sans-serif;
@@ -8,37 +5,17 @@ body{
     color:white;
 }
 
-/* --------------------------
-   전체 컨테이너: 3열 그리드
---------------------------- */
+/* 컨테이너 */
 .container{
     display:grid;
-    grid-template-columns:350px 1fr 280px; /* 왼쪽 넓게 */
-    grid-template-rows:auto 1fr;           /* 중앙 파형 포함 */
-    height:calc(100vh - 40px);
+    grid-template-columns:350px 1fr 280px;
+    grid-template-rows:auto 1fr;
     gap:15px;
     padding:15px;
+    height:calc(100vh - 40px);
 }
 
-/* --------------------------
-   왼쪽 코드 버튼 영역
---------------------------- */
-.chord-group{
-    margin-bottom:15px; /* 그룹 간 간격 */
-}
-
-.group-name{
-    font-weight:bold;
-    color:#00ffd5;
-    margin-bottom:6px;
-}
-
-.group-buttons{
-    display:flex;        /* 가로로 나열 */
-    flex-wrap:wrap;      /* 화면 좁아도 줄바꿈 */
-    gap:6px;
-}
-
+/* 왼쪽 코드 영역 */
 .sidebar-left{
     background:#1e1e2a;
     padding:15px;
@@ -46,7 +23,6 @@ body{
     border-radius:15px;
     box-shadow:0 4px 12px rgba(0,0,0,0.5);
 }
-
 .sidebar-left h3{
     text-align:center;
     margin-bottom:15px;
@@ -54,10 +30,20 @@ body{
     letter-spacing:1px;
     font-size:18px;
 }
-
+.chord-group{
+    margin-bottom:15px;
+}
+.group-name{
+    font-weight:bold;
+    color:#00ffd5;
+    margin-bottom:6px;
+}
+.group-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+}
 .sidebar-left button{
-    width:95%;
-    margin:6px auto;
     padding:10px;
     border:none;
     border-radius:10px;
@@ -75,9 +61,7 @@ body{
     transform:scale(1.05);
 }
 
-/* --------------------------
-   중앙 파형 영역
---------------------------- */
+/* 중앙 파형 */
 .center{
     display:flex;
     justify-content:center;
@@ -87,38 +71,46 @@ body{
     box-shadow:0 4px 12px rgba(0,0,0,0.5);
     padding:10px;
 }
-
 canvas{
     border-radius:12px;
     background:#14141f;
 }
 
-/* --------------------------
-   오른쪽 시퀀스/이펙터 영역
---------------------------- */
-.sidebar-right-top, .sidebar-right-bottom{
+/* 오른쪽 상단 Sequence */
+.sidebar-right-top{
     background:#1e1e2a;
     padding:15px;
     border-radius:15px;
     box-shadow:0 4px 12px rgba(0,0,0,0.5);
     margin-bottom:15px;
 }
+.sidebar-right-top h3{
+    text-align:center;
+    margin-bottom:10px;
+    color:#00ffd5;
+    letter-spacing:1px;
+}
 
-.sidebar-right-top h3, .sidebar-right-bottom h3{
+/* 오른쪽 하단 Effects */
+.sidebar-right-bottom{
+    background:#1e1e2a;
+    padding:15px;
+    border-radius:15px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.5);
+}
+.sidebar-right-bottom h3{
     text-align:center;
     margin-bottom:10px;
     color:#00ffd5;
     letter-spacing:1px;
 }
 .sidebar-right-bottom label{
-    display:block;      /* 상하 정렬 */
+    display:block;
     margin-bottom:10px;
     font-weight:500;
 }
 
-/* --------------------------
-   오른쪽 버튼 스타일 통일
---------------------------- */
+/* 공통 버튼 */
 button{
     margin:5px 4px;
     padding:8px 14px;
@@ -135,18 +127,14 @@ button:hover{
     transform:scale(1.05);
 }
 
-/* --------------------------
-   슬라이더 (이펙터) 디자인
---------------------------- */
+/* 슬라이더 */
 input[type=range]{
     width:100%;
     margin:6px 0 12px;
-    accent-color:#00ffd5; /* Chrome, Edge용 컬러 */
+    accent-color:#00ffd5;
 }
 
-/* --------------------------
-   하단 footer
---------------------------- */
+/* footer */
 footer{
     height:30px;
     text-align:center;
