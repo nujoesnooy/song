@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
 <meta charset="UTF-8">
-<title>Chord Synth</title>
+<title>Web Chord Synth</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -11,10 +12,14 @@
 
 <div class="container">
 
-<!-- 왼쪽 코드 -->
-<div class="leftPanel" id="chordPanel"></div>
+<!-- 왼쪽 코드 영역 -->
+
+<div class="leftPanel" id="chordPanel">
+<h3>Chords</h3>
+</div>
 
 <!-- 중앙 -->
+
 <div class="centerPanel">
 
 <div class="visualArea">
@@ -35,6 +40,7 @@
 </div>
 
 <!-- 오른쪽 -->
+
 <div class="rightPanel">
 
 <div class="sequencerArea">
@@ -43,24 +49,32 @@
 
 <div id="sequence"></div>
 
-<button id="playSeq">Play</button>
-<button id="loopSeq">Loop</button>
-<button id="clearSeq">Clear</button>
+<button id="playSeq">Play</button> <button id="loopSeq">Loop</button> <button id="clearSeq">Clear</button>
 
 </div>
 
-<div class="effectsArea" id="effectsPanel"></div>
+<div class="effectsArea" id="effectsPanel">
+
+<h3>Effects</h3>
 
 </div>
 
 </div>
 
-<footer>Made by nujoesnooy | Version 0.01</footer>
+</div>
+
+<footer>
+Made by nujoesnooy | Version 0.01
+</footer>
 
 <script src="audio.js"></script>
+
 <script src="effects.js"></script>
+
 <script src="sequencer.js"></script>
+
 <script src="piano.js"></script>
+
 <script src="visualizer.js"></script>
 
 </body>

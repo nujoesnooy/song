@@ -1,32 +1,32 @@
-const canvas = document.getElementById("waveform")
-const ctx = canvas.getContext("2d")
+const canvas=document.getElementById("waveform")
+const ctx=canvas.getContext("2d")
 
-canvas.width = 800
-canvas.height = 300
+canvas.width=800
+canvas.height=250
 
-const buffer = new Uint8Array(analyser.frequencyBinCount)
+const data=new Uint8Array(analyser.frequencyBinCount)
 
 function draw(){
 
 requestAnimationFrame(draw)
 
-analyser.getByteTimeDomainData(buffer)
+analyser.getByteTimeDomainData(data)
 
-ctx.fillStyle = "#111"
+ctx.fillStyle="#111"
 ctx.fillRect(0,0,canvas.width,canvas.height)
 
-ctx.lineWidth = 2
-ctx.strokeStyle = "#00ffd5"
+ctx.lineWidth=2
+ctx.strokeStyle="#00ffd5"
 
 ctx.beginPath()
 
-let slice = canvas.width / buffer.length
-let x = 0
+let slice=canvas.width/data.length
+let x=0
 
-for(let i=0;i<buffer.length;i++){
+for(let i=0;i<data.length;i++){
 
-let v = buffer[i] / 128
-let y = v * canvas.height/2
+let v=data[i]/128
+let y=v*canvas.height/2
 
 if(i===0){
 
@@ -38,7 +38,7 @@ ctx.lineTo(x,y)
 
 }
 
-x += slice
+x+=slice
 
 }
 

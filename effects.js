@@ -1,4 +1,6 @@
-const effects = [
+const effectsPanel=document.getElementById("effectsPanel")
+
+const effects=[
 
 "Filter",
 "Resonance",
@@ -11,20 +13,18 @@ const effects = [
 
 ]
 
-const effectsPanel = document.getElementById("effectsPanel")
+effects.forEach(name=>{
 
-effects.forEach(name => {
+const label=document.createElement("label")
 
-const label = document.createElement("label")
+label.innerText=name
 
-label.innerText = name
+const slider=document.createElement("input")
 
-const slider = document.createElement("input")
-
-slider.type = "range"
-slider.min = 0
-slider.max = 1
-slider.step = 0.01
+slider.type="range"
+slider.min=0
+slider.max=1
+slider.step=0.01
 
 label.appendChild(slider)
 

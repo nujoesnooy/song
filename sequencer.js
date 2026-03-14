@@ -1,42 +1,42 @@
-let sequence = []
-let loop = false
+let sequence=[]
+let loop=false
 
-const sequenceDiv = document.getElementById("sequence")
+const sequenceDiv=document.getElementById("sequence")
 
 function addSequence(chord){
 
 sequence.push(chord)
+
 renderSequence()
 
 }
 
 function renderSequence(){
 
-sequenceDiv.innerText = sequence.join(" - ")
+sequenceDiv.innerText="Sequence : "+sequence.length+" chords"
 
 }
 
-document.getElementById("clearSeq").onclick = () => {
+document.getElementById("clearSeq").onclick=()=>{
 
-sequence = []
+sequence=[]
 renderSequence()
 
 }
 
-document.getElementById("loopSeq").onclick = () => {
+document.getElementById("loopSeq").onclick=()=>{
 
-loop = !loop
+loop=!loop
 
 }
 
-document.getElementById("playSeq").onclick = playSequence
-
+document.getElementById("playSeq").onclick=playSequence
 
 function playSequence(){
 
-if(sequence.length === 0) return
+if(sequence.length===0)return
 
-let i = 0
+let i=0
 
 function next(){
 
@@ -44,11 +44,11 @@ playChord(sequence[i])
 
 i++
 
-if(i >= sequence.length){
+if(i>=sequence.length){
 
 if(loop){
 
-i = 0
+i=0
 setTimeout(next,1500)
 
 }

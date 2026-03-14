@@ -16,11 +16,14 @@ padding:10px;
 .leftPanel{
 background:#1e1e2a;
 padding:10px;
+border-radius:10px;
 }
 
 .centerPanel{
 display:flex;
 flex-direction:column;
+background:#14141f;
+border-radius:10px;
 }
 
 .visualArea{
@@ -46,12 +49,14 @@ flex-direction:column;
 flex:1;
 background:#1e1e2a;
 padding:10px;
+border-radius:10px;
 }
 
 .effectsArea{
 flex:1;
 background:#1e1e2a;
 padding:10px;
+border-radius:10px;
 }
 
 .pianoKey{
@@ -63,4 +68,26 @@ display:flex;
 align-items:flex-end;
 justify-content:center;
 cursor:pointer;
+margin:2px;
+}
+
+button{
+margin:4px;
+padding:6px 10px;
+border:none;
+border-radius:6px;
+background:#00ffd5;
+cursor:pointer;
+}
+
+canvas{
+width:90%;
+height:250px;
+background:#111;
+}
+
+footer{
+text-align:center;
+padding:10px;
+background:#0f111a;
 }

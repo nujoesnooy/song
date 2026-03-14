@@ -1,17 +1,18 @@
-const pianoDiv = document.getElementById("pianoKeys")
+const pianoDiv=document.getElementById("pianoKeys")
 
-const whiteNotes = ["C","D","E","F","G","A","B"]
+const notes=["C","D","E","F","G","A","B"]
 
-whiteNotes.forEach(note => {
+notes.forEach(n=>{
 
-const key = document.createElement("div")
+const key=document.createElement("div")
 
-key.className = "pianoKey"
-key.innerText = note
+key.className="pianoKey"
 
-key.onclick = () => {
+key.innerText=n
 
-playFreq(baseNotes[note])
+key.onclick=()=>{
+
+playFreq(baseNotes[n])
 
 }
 
@@ -19,9 +20,9 @@ pianoDiv.appendChild(key)
 
 })
 
-document.addEventListener("keydown", e => {
+document.addEventListener("keydown",e=>{
 
-const map = {
+const map={
 
 a:"C",
 s:"D",
@@ -41,5 +42,5 @@ playFreq(baseNotes[map[e.key]])
 
 })
 
-document.getElementById("octUp").onclick = ()=> octave++
-document.getElementById("octDown").onclick = ()=> octave--
+document.getElementById("octUp").onclick=()=>octave++
+document.getElementById("octDown").onclick=()=>octave--
