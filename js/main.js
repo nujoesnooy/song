@@ -4,7 +4,7 @@ import {createEffects} from "./effects.js"
 import {startVisualizer} from "./visualizer.js"
 
 const roots=["C","D","E","F","G","A","B"]
-const types=["7","m","m7","M7"]
+const types=["7","m","M","m7","M7","sus4"]
 
 const left=document.getElementById("left")
 
