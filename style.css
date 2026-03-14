@@ -1,146 +1,17 @@
-body{
-    margin:0;
-    font-family:'Segoe UI',sans-serif;
-    background:#0f111a;
-    color:white;
-}
-
-/* 컨테이너 */
-.container{
-    display:grid;
-    grid-template-columns:350px 1fr 280px;
-    grid-template-rows:auto 1fr;
-    gap:15px;
-    padding:15px;
-    height:calc(100vh - 40px);
-}
-
-/* 왼쪽 코드 영역 */
-.sidebar-left{
-    background:#1e1e2a;
-    padding:15px;
-    overflow-y:auto;
-    border-radius:15px;
-    box-shadow:0 4px 12px rgba(0,0,0,0.5);
-}
-.sidebar-left h3{
-    text-align:center;
-    margin-bottom:15px;
-    color:#00ffd5;
-    letter-spacing:1px;
-    font-size:18px;
-}
-.chord-group{
-    margin-bottom:15px;
-}
-.group-name{
-    font-weight:bold;
-    color:#00ffd5;
-    margin-bottom:6px;
-}
-.group-buttons{
-    display:flex;
-    flex-wrap:wrap;
-    gap:6px;
-}
-.sidebar-left button{
-    padding:10px;
-    border:none;
-    border-radius:10px;
-    background:#2a2a3a;
-    color:#fff;
-    cursor:pointer;
-    font-weight:600;
-    font-size:14px;
-    transition:.25s all;
-    box-shadow:0 2px 6px rgba(0,0,0,0.5);
-}
-.sidebar-left button:hover{
-    background:#00ffd5;
-    color:#0f111a;
-    transform:scale(1.05);
-}
-
-/* 중앙 파형 */
-.center{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:linear-gradient(145deg,#14141f,#1a1a27);
-    border-radius:15px;
-    box-shadow:0 4px 12px rgba(0,0,0,0.5);
-    padding:10px;
-}
-canvas{
-    border-radius:12px;
-    background:#14141f;
-}
-
-/* 오른쪽 상단 Sequence */
-.sidebar-right-top{
-    background:#1e1e2a;
-    padding:15px;
-    border-radius:15px;
-    box-shadow:0 4px 12px rgba(0,0,0,0.5);
-    margin-bottom:15px;
-}
-.sidebar-right-top h3{
-    text-align:center;
-    margin-bottom:10px;
-    color:#00ffd5;
-    letter-spacing:1px;
-}
-
-/* 오른쪽 하단 Effects */
-.sidebar-right-bottom{
-    background:#1e1e2a;
-    padding:15px;
-    border-radius:15px;
-    box-shadow:0 4px 12px rgba(0,0,0,0.5);
-}
-.sidebar-right-bottom h3{
-    text-align:center;
-    margin-bottom:10px;
-    color:#00ffd5;
-    letter-spacing:1px;
-}
-.sidebar-right-bottom label{
-    display:block;
-    margin-bottom:10px;
-    font-weight:500;
-}
-
-/* 공통 버튼 */
-button{
-    margin:5px 4px;
-    padding:8px 14px;
-    border:none;
-    border-radius:10px;
-    cursor:pointer;
-    background:#00ffd5;
-    color:#0f111a;
-    font-weight:bold;
-    transition:.25s all;
-}
-button:hover{
-    background:#33fff0;
-    transform:scale(1.05);
-}
-
-/* 슬라이더 */
-input[type=range]{
-    width:100%;
-    margin:6px 0 12px;
-    accent-color:#00ffd5;
-}
-
-/* footer */
-footer{
-    height:30px;
-    text-align:center;
-    line-height:30px;
-    font-size:14px;
-    color:#888;
-    background:rgba(15,17,26,0.9);
-    letter-spacing:1px;
-}
+body{margin:0;font-family:'Segoe UI',sans-serif;background:#0f111a;color:white;}
+.container{display:grid;grid-template-columns:3fr 4fr 3fr;height:100vh;gap:10px;padding:10px;}
+.sidebar-left{background:#1e1e2a;padding:10px;border-radius:12px;overflow-y:auto;}
+.center{display:flex;flex-direction:column;gap:5px;}
+.center-top{flex:7;background:#14141f;border-radius:12px;display:flex;justify-content:center;align-items:center;}
+.center-bottom{flex:3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;}
+.sidebar-right{display:flex;flex-direction:column;gap:10px;}
+.right-top{flex:1;background:#1e1e2a;padding:10px;border-radius:12px;}
+.right-bottom{flex:1;background:#1e1e2a;padding:10px;border-radius:12px;}
+button{cursor:pointer;border:none;border-radius:8px;background:#00ffd5;color:#0f111a;padding:6px 10px;transition:.2s;}
+button:hover{background:#33fff0;transform:scale(1.05);}
+canvas{border-radius:10px;background:#14141f;}
+.pianoKey{width:40px;height:120px;border:1px solid #000;background:white;text-align:center;line-height:120px;cursor:pointer;user-select:none;position:relative;}
+.pianoKey.black{width:28px;height:80px;background:black;color:white;z-index:2;margin-left:-14px;margin-right:-14px;}
+.pianoKey.active{background:#00ffd5;color:#0f111a;}
+.oct-controls{margin-top:5px;display:flex;gap:5px;}
+footer{text-align:center;line-height:30px;background:rgba(15,17,26,0.9);}
