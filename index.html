@@ -1,87 +1,39 @@
 <!DOCTYPE html>
-
-<html lang="en">
+<html lang="ko">
 
 <head>
 <meta charset="UTF-8">
-<title>Web Synth</title>
-<link rel="stylesheet" href="style.css">
+<title>Chord Piano Tool</title>
+<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-<div class="container">
+<div id="left"></div>
 
-<!-- 왼쪽 코드 영역 -->
+<div id="center">
 
-<div class="leftPanel">
+<canvas id="wave"></canvas>
 
-<h3>Chords</h3>
-
-<div id="chordPanel"></div>
+<div id="piano"></div>
 
 </div>
 
-<!-- 중앙 -->
+<div id="right">
 
-<div class="centerPanel">
+<div id="controls">
 
-<div class="visualArea">
-<canvas id="waveform"></canvas>
-</div>
-
-<div class="pianoArea">
-
-<div id="pianoKeys"></div>
-
-<div class="octaveControls">
-<button id="octDown">OCT -</button>
-<button id="octUp">OCT +</button>
-</div>
+<button id="playBtn">Play</button>
+<button id="loopBtn">Loop</button>
+<button id="clearBtn">Clear</button>
 
 </div>
 
-</div>
-
-<!-- 오른쪽 -->
-
-<div class="rightPanel">
-
-<div class="sequencerArea">
-
-<h3>Sequence</h3>
-
-<div id="sequence"></div>
-
-<button id="playSeq">Play</button> <button id="loopSeq">Loop</button> <button id="clearSeq">Clear</button>
+<div id="effects"></div>
 
 </div>
 
-<div class="effectsArea">
-
-<h3>Effects</h3>
-
-<div id="effectsPanel"></div>
-
-</div>
-
-</div>
-
-</div>
-
-<footer>
-Made by nujoesnooy | Version 0.01
-</footer>
-
-<script src="audio.js"></script>
-
-<script src="sequencer.js"></script>
-
-<script src="effects.js"></script>
-
-<script src="piano.js"></script>
-
-<script src="visualizer.js"></script>
+<script type="module" src="js/main.js"></script>
 
 </body>
 </html>
