@@ -2,19 +2,28 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Code Piano</title>
+<title>Web Echo Piano</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<h1>🎹 Code Piano 0.02</h1>
-<p>Chord progression: G → D → Em → C</p>
+<h1>🎹 Web Echo Piano</h1>
+<p>Keyboard: A S D F G H J</p>
 
-<button id="playBtn">Play</button>
-<button id="stopBtn">Stop</button>
+<div class="piano">
+  <div class="key white" data-note="C">A</div>
+  <div class="key white" data-note="D">S</div>
+  <div class="key white" data-note="E">D</div>
+  <div class="key white" data-note="F">F</div>
+  <div class="key white" data-note="G">G</div>
+  <div class="key white" data-note="A">H</div>
+  <div class="key white" data-note="B">J</div>
+</div>
+
+<button id="playBtn">Play G-D-Em-C Loop</button>
+<button id="stopBtn">Stop Loop</button>
 
 <script src="piano.js"></script>
-
 </body>
 </html>

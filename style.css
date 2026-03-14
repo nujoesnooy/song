@@ -1,24 +1,48 @@
 body{
-    font-family: Arial;
-    text-align:center;
-    margin-top:100px;
     background:#111;
     color:white;
+    text-align:center;
+    font-family:Arial;
+}
+
+.piano{
+    display:flex;
+    justify-content:center;
+    margin-top:50px;
+}
+
+.key{
+    width:80px;
+    height:250px;
+    border:2px solid black;
+    background:white;
+    margin:2px;
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.key:active{
+    background:#ddd;
 }
 
 button{
     font-size:20px;
-    padding:15px 30px;
-    margin:10px;
-    border:none;
-    border-radius:10px;
+    padding:10px 20px;
+    margin:15px;
     cursor:pointer;
+    border-radius:8px;
+    border:none;
 }
 
 #playBtn{
     background:#4CAF50;
+    color:white;
 }
 
 #stopBtn{
     background:#f44336;
+    color:white;
 }
